@@ -5,7 +5,7 @@ const server = http.createServer((req, res) => {
 
     if (req.url === "/") {
 
-        fs.readFile("index.html", (err, data) => {
+        fs.readFile("../../about.html", (err, data) => {
             res.writeHead(200, { "Content-Type": "text/html" });
             res.end(data);
         });
