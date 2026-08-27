@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test HTTP</title>
+</head>
+<body>
+
+<h1>Tests du mini serveur</h1>
+
+<button onclick="testAccueil()">Tester /</button>
+<button onclick="testAbout()">Tester /about</button>
+
+<p id="resultat"></p>
+
+<script>
+async function testAccueil() {
+    const response = await fetch("http://localhost:3000/");
+    const html = await response.text();
+
+    document.getElementById("resultat").innerHTML =
+        response.ok
+            ? " Route / fonctionnelle"
+            : "Erreur sur /";
+}
+
+async function testAbout() {
+    const response = await fetch("http://localhost:3000/about");
+    const html = await response.text();
+
+    document.getElementById("resultat").innerHTML =
+        response.ok
+            ? " Route /about fonctionnelle"
+            : " Erreur sur /about";
+}
+</script>
+
+</body>
+</html>
