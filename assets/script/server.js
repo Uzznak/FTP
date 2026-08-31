@@ -32,6 +32,8 @@ const server = http.createServer((req, res) => {
     }
 });
 
+console.log("Requête reçue :", req.method, req.url);
+
 server.listen(3000, () => {
     console.log("Serveur lancé sur http://localhost:3000");
 });
