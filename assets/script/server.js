@@ -10,6 +10,13 @@ const server = http.createServer((req, res) => {
             res.end(data);
         });
 
+        if (req.url === "/assets/style/style.css") {
+        fs.readFile("./assets/style/style.css", (err, data) => {
+        res.writeHead(200, { "Content-Type": "text/css" });
+        res.end(data);
+        });
+        }
+
     } else if (req.url === "/about") {
 
         fs.readFile("about.html", (err, data) => {
